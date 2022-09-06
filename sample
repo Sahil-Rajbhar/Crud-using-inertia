@@ -1,0 +1,176 @@
+ <!-- <fields>gjsccsdjh</fields> -->
+                            <!-- <center>Adding new employee</center>
+                            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" @submit.prevent="submit">
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                                        Name
+                                    </label>
+                                    <input v-model="form.name" class="shadow appearance-none border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Employee name">
+                                </div>
+                                <div v-if="form.errors.email" class="text-red-600">{{ form.errors.name }}</div><br>
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                                        Email
+                                    </label>
+                                    <input v-on:keyup="validateEmail" v-model="form.email" class="shadow appearance-none border border-blue-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="Employee email">                                                                           
+                                </div>
+                                <div v-if="form.errors.email" class="text-red-600">{{ form.errors.email }}</div><br>
+                                {{ notifmsg }}
+                                <div class="flex items-center justify-between">
+                                    <a class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" href="/employees">
+                                        Cancel
+                                    </a>
+                                   
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form> -->
+                            
+                            
+                             <!-- <Head title="Dashboard" />    
+    <BreezeAuthenticatedLayout>
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                Add Employee
+            </h2>
+        </template>
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        <div class="w-full max-w-xs flex flex-col ..." >
+                            <div id="forms">                                
+                                    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" @submit.prevent="submit">                                        
+                                            <Fields v-model="form.name"
+                                                label="Name"
+                                                type="text" 
+                                            />                                        
+                                        <div v-if="form.errors.email" class="text-red-600">{{ form.errors.name }}</div><br>
+                                        <div class="mb-6">
+                                            <Fields v-model="form.email"
+                                                v-on:keyup="validateEmail"
+                                                label="Email"
+                                                type="text"
+                                             />                                                                      
+                                        </div>
+                                        <div v-if="form.errors.email" class="text-red-600">{{ form.errors.email }}</div><br>
+                                        {{ notifmsg }}
+                                        <Buttons/>
+                                    </form>                                 
+                            </div>                           
+                            <p class="text-center text-gray-500 text-xs">
+                                &copy;2022 Canvas Craft Media . All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </BreezeAuthenticatedLayout> -->
+    
+    
+    
+    
+    
+    
+     <!-- <Head title="Dashboard" />    
+    <BreezeAuthenticatedLayout>
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                Edit Employee
+            </h2>
+        </template>
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        <div class="w-full max-w-xs flex flex-col ..." >
+                            <center>Update employee data</center>
+                            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" @submit.prevent="submit">
+                                <Fields v-model="form.name"
+                                    label="Name"
+                                    type="text" 
+                                />    
+                                <div v-if="form.errors.name" class="text-red-600">{{ form.errors.name }}</div><br>                               
+                                <Fields v-model="form.email"
+                                    v-on:keyup="validateEmail"
+                                    label="Email"
+                                    type="text"
+                                />   
+                                {{ notifmsg }}                                                                     
+                                <div v-if="form.errors.email" class="text-red-600" id="email-error">{{ form.errors.email }}</div><br>                                
+                                <Buttons/>
+                            </form>
+                            <p class="text-center text-gray-500 text-xs">
+                                &copy;2022 Canvas Craft Media . All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </BreezeAuthenticatedLayout> -->
+    
+    
+    
+    
+        <!-- <label v-if="label">{{ label }}</label>
+    <div class="mb-4">
+        <input
+            v-bind="$attrs"
+            :value="modelValue"
+            :placeholder="label"
+            @input="$emit('update:modelValue', $event.target.value)"
+            class="field"
+        >
+       
+    </div> -->
+    
+    
+    
+    
+    <script>
+
+    import Layouts from '@/Pages/Employees/Layouts.vue';
+    import Fields from '@/Pages/Employees/Fields.vue';
+    import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+    import { Head } from "@inertiajs/inertia-vue3";
+    import { useForm } from "@inertiajs/inertia-vue3";
+    import axios from "axios";
+    export default {
+        name: 'create',
+        components: {
+            BreezeAuthenticatedLayout,
+            Head,
+            Fields,
+            Layouts,
+        },
+        setup() {
+            const form = useForm({
+                name: null,
+                email: null,
+                
+            });             
+            return { form };
+        },
+
+        data(){
+            return {
+                error:null
+            }
+        },
+        methods: {
+            // validateEmail(e){      
+            //     let self = this
+                
+            //     axios.post(route('email.validate'), { email: this.form.email })
+            //          .then(response =>  self.error = null )
+            //          .catch(errors => self.error = errors.response.data.message)
+            // },
+            submit() {
+                this.form.post(route("employees.store"));
+            },
+        },
+    };
+</script>
