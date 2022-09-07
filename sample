@@ -174,3 +174,18 @@
         },
     };
 </script>
+
+
+// public function update(Request $request,Employee $employee)
+form.errors.email
+
+
+
+
+using validate bag
+  <!-- <div v-if="errors.createEmployee" class="text-red-600">{{ errors.createEmployee.name }}</div><br>
+            <div v-if="errors.createEmployee" class="text-red-600">{{ errors.createEmployee.email }}</div><br> -->
+            // Validator::make($input, [
+        //     'name' => 'required',
+        //     'email' => 'required|email|unique:employees,email,',
+        // ])->validateWithBag('createEmployee');

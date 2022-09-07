@@ -1,13 +1,14 @@
 <template>   
     <Layout>        
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" @submit.prevent="submit"> 
-            <div v-if="form.errors.email" class="text-red-600">{{ form.errors.name }}</div><br>                                                                                           
-            <div v-if="form.errors.email" class="text-red-600">{{ form.errors.email }}</div><br>                                       
+            <!-- <div v-if="errors.createEmployee" class="text-red-600">{{ errors.createEmployee.name }}</div><br>
+            <div v-if="errors.createEmployee" class="text-red-600">{{ errors.createEmployee.email }}</div><br> -->
+            <div v-if="form.errors.name" class="text-red-600">{{ form.errors.name }}</div><br>
+            <div v-if="form.errors.email" class="text-red-600">{{ form.errors.email}}</div><br>
             <Fields 
                 v-model:name="form.name"
                 v-model:email="form.email"                
-            />                                                    
-            {{ error }}
+            />
         </form>
     </Layout>   
 </template>
@@ -31,13 +32,16 @@
                 name: null,
                 email: null,
                 
-            });             
+            });
+
             return { form };
         },
 
+        props: ['errors'],
+
         data(){
             return {
-                error:null
+                errors:null
             }
         },
         methods: {

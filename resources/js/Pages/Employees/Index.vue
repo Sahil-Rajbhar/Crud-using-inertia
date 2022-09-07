@@ -1,5 +1,10 @@
 <template>
-    <Layout>    
+    <Layout>
+        <div v-if="$page.props.flash.message" class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+            <span class="font-medium">
+               <center>{{ $page.props.flash.message }}</center> 
+            </span>
+        </div>    
         <Link :href="route('employees.create')" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Add Employee</Link>
         <div class="flex flex-col">
             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -50,7 +55,7 @@
     </Layout>    
 </template>
 <script>
-     import Layout from '@/Pages/Employees/Layout.vue';
+    import Layout from '@/Pages/Employees/Layout.vue';
     import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
     import { Head } from "@inertiajs/inertia-vue3";
     import { Link } from "@inertiajs/inertia-vue3";

@@ -10,6 +10,12 @@ use App\Models\Employee;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Actions\Employees;
+
+use App\Http\Requests\EmployeeRequest;
+
+
+
 class EmployeeController extends Controller
 {
     /**
@@ -39,20 +45,12 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-
+    public function store(EmployeeRequest $request, Employees\CreateEmployee $creator, )
     {
-        // dd($request->email);
-        $data =  $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:employees,email,',
-        ]);
-        
-        
-        $employee = $request->user()->employees()->create($data);
+        $creator->create($request->user(), $request->all());
 
         return redirect('employees')->with([
-            'status'=>'Adding employee data',
+            'status'=>'success',
             'message'=>'Employee added successfully'
         ]);
     }
@@ -65,8 +63,8 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //   dd($employee->name);
-          return Inertia::render('Employees/Show', compact('employee'));
+       
+        return Inertia::render('Employees/Show', compact('employee'));
     }
 
     /**
@@ -77,8 +75,8 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        // dd($employee->id);
-        return Inertia::render('Employees/Edit', compact('employee'));
+       
+       return Inertia::render('Employees/Edit', compact('employee'));
         
     }
 
@@ -89,22 +87,13 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Employee $employee)
-
+    
+    public function update(EmployeeRequest $request, Employees\UpdateEmployee $updator, Employee $employee )
     {
-             
-        $this->validate($request, [           
-            'name' => 'required',
-            'email' => 'required|email|unique:employees,email,'.$employee->id,                      
-        ]);
-       
-        $employee->update([
-            'name' => $request->name,
-            'email' => $request->email,
-        ]);
-
+        $updator->update($employee, $request->all());   
+        
         return redirect('employees')->with([
-            'status'=>'Updating employee data',
+            'status'=>'success',
             'message'=>'Employee updated successfully',
         ]);
     }
@@ -115,12 +104,13 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy(Employee $employee, Employees\DestroyEmployee $destroyer)
     {
-        $employee->delete();
+        $destroyer->destroy($employee);
+        
         return redirect('employees')->with([
-            'status'=>'Deleting employee data',
-            'message'=>'Employee deleted successfully',]);    
+            'status'=>'success',
+            'message'=>'Employee deleted successfully']);    
     }
     
 }

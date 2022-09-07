@@ -47,8 +47,8 @@
                 default: ''
             },
             email: {
-            type: [String, Number],
-            default: ''
+                type: [String, Number],
+                default: ''
             }
         },
         data() {
