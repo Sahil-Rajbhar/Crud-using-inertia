@@ -23,7 +23,7 @@ class EmployeeRequest extends FormRequest
      */
     public function rules()
     {
-        if($this->isMethod('PUT')) {        
+        if ($this->isMethod('PUT')) {
             return [
                 'name' => 'required',
                 'email' => 'required|email|unique:employees,email,'.$this->employee->id,

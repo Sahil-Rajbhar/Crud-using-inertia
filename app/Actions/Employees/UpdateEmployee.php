@@ -1,17 +1,11 @@
-<?php 
-    namespace App\Actions\Employees;
+<?php
 
-    use Illuminate\Support\Facades\Validator;
+namespace App\Actions\Employees;
 
-    class UpdateEmployee{
-
-        public function update($employee, $input){
-            
-            return $employee->update($input);
-           
-        }
-    } 
-
-
-
-?>
+class UpdateEmployee
+{
+    public function update($employee, $input)
+    {
+        return $employee->update($input);
+    }
+}

@@ -1,16 +1,11 @@
 <?php
-    namespace App\Actions\Employees;
 
-    use Illuminate\Support\Facades\Validator;
+namespace App\Actions\Employees;
 
-    class DestroyEmployee {
-        
-        public function destroy($employee){
-          
-            return $employee->delete();
-
-        }
+class DestroyEmployee
+{
+    public function destroy($employee)
+    {
+        return $employee->delete();
     }
-
-
-?>
+}

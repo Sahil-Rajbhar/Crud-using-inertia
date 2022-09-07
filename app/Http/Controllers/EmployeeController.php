@@ -2,19 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use Inertia\Inertia;
-
-use App\Models\Employee;
-
-use Illuminate\Database\Eloquent\Model;
-
 use App\Actions\Employees;
-
 use App\Http\Requests\EmployeeRequest;
-
-
+use App\Models\Employee;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class EmployeeController extends Controller
 {
@@ -35,8 +27,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Employees/Create'); 
-
+        return Inertia::render('Employees/Create');
     }
 
     /**
@@ -45,13 +36,13 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EmployeeRequest $request, Employees\CreateEmployee $creator, )
+    public function store(EmployeeRequest $request, Employees\CreateEmployee $creator)
     {
         $creator->create($request->user(), $request->all());
 
         return redirect('employees')->with([
-            'status'=>'success',
-            'message'=>'Employee added successfully'
+            'status' => 'success',
+            'message' => 'Employee added successfully',
         ]);
     }
 
@@ -63,7 +54,6 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-       
         return Inertia::render('Employees/Show', compact('employee'));
     }
 
@@ -75,9 +65,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-       
-       return Inertia::render('Employees/Edit', compact('employee'));
-        
+        return Inertia::render('Employees/Edit', compact('employee'));
     }
 
     /**
@@ -87,14 +75,13 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
-    public function update(EmployeeRequest $request, Employees\UpdateEmployee $updator, Employee $employee )
+    public function update(EmployeeRequest $request, Employees\UpdateEmployee $updator, Employee $employee)
     {
-        $updator->update($employee, $request->all());   
-        
+        $updator->update($employee, $request->all());
+
         return redirect('employees')->with([
-            'status'=>'success',
-            'message'=>'Employee updated successfully',
+            'status' => 'success',
+            'message' => 'Employee updated successfully',
         ]);
     }
 
@@ -107,10 +94,9 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee, Employees\DestroyEmployee $destroyer)
     {
         $destroyer->destroy($employee);
-        
+
         return redirect('employees')->with([
-            'status'=>'success',
-            'message'=>'Employee deleted successfully']);    
+            'status' => 'success',
+            'message' => 'Employee deleted successfully', ]);
     }
-    
 }

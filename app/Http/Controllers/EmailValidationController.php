@@ -8,13 +8,8 @@ class EmailValidationController extends Controller
 {
     //
 
-    public function validateEmail(Request $request){
-    
-        return $request->validate([ 'email' => 'unique:employees,email'. $request->id ?? null ]);
-
-
+    public function validateEmail(Request $request)
+    {
+        return $request->validate(['email' => 'unique:employees,email'.$request->id ?? null]);
     }
-
-
-
 }

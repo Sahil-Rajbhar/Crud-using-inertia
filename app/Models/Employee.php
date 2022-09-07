@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     use HasFactory;
-    
-    protected $table = 'employees';  
-    
-    protected $fillable = ['name', 'email', 'user_id']; 
-    
-    public function user(){
+
+    protected $table = 'employees';
+
+    protected $fillable = ['name', 'email', 'user_id'];
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }
