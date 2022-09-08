@@ -189,3 +189,39 @@ using validate bag
         //     'name' => 'required',
         //     'email' => 'required|email|unique:employees,email,',
         // ])->validateWithBag('createEmployee');
+        
+        
+        
+        
+        // return  new EmployeeResource($employee);
+        // return Inertia::render('Employees/Show', compact('employee'));
+        // return Inertia::render('Employees/Show', ['employee' => new EmployeeResource($employee)]);
+        // dd(new \App\Http\Resources\EmployeeResource($employee));
+        
+        // return inertia('Employees/Show',compact('employee'));
+        
+        
+        
+        //  dd);
+        
+        // return Inertia::render('Employees/Index', ['employees' => $request->user()->employees]);
+        // $employees =  new EmployeeCollection::collection($request->user()->employees);
+        // dd($employees);
+        
+        
+        // $employees = EmployeeCollection::collection($request->user()->employees);
+        // return Inertia::render('Employees/Index', compact('employees'));
+        
+        // return Inertia::render('Employees/Edit', compact('employee'));
+        
+        
+        // return redirect('employees.index')->with([
+        //     'status' => 'success',
+        //     'message' => 'Employee updated successfully',
+        // ]);
+        
+        
+        
+        // return redirect('employees.index')->with([
+        //     'status' => 'success',
+        //     'message' => 'Employee deleted successfully', ]);

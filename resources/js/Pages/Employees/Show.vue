@@ -50,14 +50,6 @@
             Head,
             Layout,
         },
-        setup(props) {
-            const form = useForm({
-                name: props.employee.name,
-                email: props.employee.email,
-            });
-    
-            return { form };
-        },
         props: {
             employee: Object,
         },

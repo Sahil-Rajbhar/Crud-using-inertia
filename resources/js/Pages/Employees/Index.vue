@@ -31,7 +31,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="employee in employees" class="bg-white border-b" >
+                                <tr v-for="(employee,i) in employees" :key=i class="bg-white border-b" >
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ employee.name }}</td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                         <a href="mailto:{{ employee.email}}"> {{ employee.email }}</a>
@@ -60,7 +60,7 @@
     import { Head } from "@inertiajs/inertia-vue3";
     import { Link } from "@inertiajs/inertia-vue3";
     import Swal from 'sweetalert2';
-    export default {
+    export default {  
         components: {
             BreezeAuthenticatedLayout,
             Head,
@@ -69,7 +69,7 @@
         },
         props: {
             employees: Object,
-        },
+        },        
         methods: {
             destroy(id) {
                 Swal.fire({

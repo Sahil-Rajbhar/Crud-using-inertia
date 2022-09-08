@@ -38,7 +38,6 @@
         },
 
         props: ['errors'],
-
         data(){
             return {
                 errors:null
