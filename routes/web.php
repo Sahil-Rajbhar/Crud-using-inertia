@@ -33,3 +33,7 @@ require __DIR__.'/auth.php';
 Route::resource('employees','EmployeeController');
 
 Route::post('/validate', 'EmailValidationController@validateEmail')->name('email.validate');
+
+Route::get('/alpha', function () {
+    echo "hello world";
+});

@@ -20,7 +20,6 @@ class EmployeeController extends Controller
      */
     public function index(Request $request)
     {
-        // return EmployeeCollection::collection($request->user()->employees);
         return Inertia::render('Employees/Index', ['employees' => EmployeeResource::collection($request->user()->employees)]);        
     }
 

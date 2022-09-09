@@ -36,7 +36,7 @@
 
             return { form };
         },
-
+        
         props: ['errors'],
         data(){
             return {
